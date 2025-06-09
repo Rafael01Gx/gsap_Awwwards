@@ -1,16 +1,18 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, PLATFORM_ID, signal, ViewChild } from '@angular/core';
+import { ButtonComponent } from "../button/button.component";
+import { svgIcons } from '../../icons/icons';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [ButtonComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
 @Inject(PLATFORM_ID) private plataform_Id!: Object ; 
 @ViewChild('nextVideoRef') nextVideoRef!: ElementRef;
-
+  icon=signal(svgIcons)
   currentIndex = signal(1);
   hasClicked = signal(false);
   isLoading = signal(true);
@@ -18,6 +20,8 @@ export class HeroComponent {
   totalVideos = 4;
   upcomingVideoIndex = ()=> (this.currentIndex() % this.totalVideos) + 1
   
+
+
 handleMiniVdClick(){
   this.hasClicked.set(true)
   this.currentIndex.set(this.upcomingVideoIndex()); 
@@ -29,4 +33,5 @@ handleVideoLoad(){
   if(isPlatformBrowser(this.plataform_Id)){
   this.loadedVideos.update(prev => prev + 1)}
 }
+
 }
