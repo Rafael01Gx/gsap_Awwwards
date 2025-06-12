@@ -12,6 +12,7 @@ import { ButtonComponent } from '../button/button.component';
 import { svgIcons } from '../../icons/icons';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-hero',
@@ -24,6 +25,7 @@ export class HeroComponent {
   currentVideoRef!: ElementRef;
   @ViewChild('nextVideoRef', { static: true })
   nextVideoRef!: ElementRef;
+  @ViewChild('videoFrame', { static: true }) videoFrame!: ElementRef;
   icon = signal(svgIcons);
   currentIndex = signal(1);
   hasClicked = signal(false);
@@ -31,8 +33,8 @@ export class HeroComponent {
   loadedVideos = signal(0);
   totalVideos = 4;
   viewReady = signal(false);
+  #animationContext?: gsap.Context;
   upcomingVideoIndex = () => (this.currentIndex() % this.totalVideos) + 1;
-  private animationContext?: gsap.Context;
 
   handleMiniVdClick() {
     this.hasClicked.set(true);
@@ -48,11 +50,11 @@ export class HeroComponent {
   }
   constructor(@Inject(PLATFORM_ID) private platform_Id: Object) {
     if (isPlatformBrowser(this.platform_Id)) {
-      gsap.registerPlugin(MotionPathPlugin);
+      gsap.registerPlugin([MotionPathPlugin]);
       effect(() => {
         if (this.hasClicked() && this.currentIndex()) {
-          this.animationContext?.revert();
-          this.animationContext = gsap.context(() => {
+          this.#animationContext?.revert();
+          this.#animationContext = gsap.context(() => {
             gsap.set(this.nextVideoRef.nativeElement, {
               visibility: 'visible',
             });
@@ -75,7 +77,26 @@ export class HeroComponent {
             });
           });
         }
+
+        gsap.context(() => {
+        gsap.set(this.videoFrame.nativeElement, {
+          clipPath: 'polygon(14% 0%, 72% 0%, 90% 100%, 0% 100%)',
+          borderRadius:'0 0 40% 10%'
+        });
+        gsap.from(this.videoFrame.nativeElement,{
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          borderRadius: '0 0 0 0',
+          ease: 'power1.inOut',
+          scrollTrigger: {
+            trigger: this.videoFrame.nativeElement,
+            start: 'center center',
+            end: 'bottom center',
+            scrub: true,
+          }
+        })
       });
+      });
+
     }
   }
 }
