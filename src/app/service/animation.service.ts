@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 @Injectable({
   providedIn: 'root',
 })
-export class Animation {
+export class AnimationService {
   constructor() {
     gsap.registerPlugin([MotionPathPlugin, ScrollTrigger]);
   }
