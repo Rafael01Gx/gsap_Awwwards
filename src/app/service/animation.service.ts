@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 })
 export class AnimationService {
   constructor() {
-    gsap.registerPlugin([MotionPathPlugin, ScrollTrigger]);
+    gsap.registerPlugin(MotionPathPlugin,ScrollTrigger);
   }
 
   toTransformOrigin(elementRef: ElementRef) {

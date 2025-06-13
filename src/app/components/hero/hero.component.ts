@@ -8,6 +8,8 @@ import {
   Inject,
   OnDestroy,
   PLATFORM_ID,
+  resource,
+  ResourceLoader,
   signal,
   ViewChild,
 } from '@angular/core';
@@ -53,14 +55,16 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
           this.#animationContext = gsap.context(() => {
             this.#animationService.setVisibility(this.nextVideoRef);
             this.#animationService.toTransformOrigin(this.nextVideoRef);
-            this.#animationService.fromTransformOrigin(this.nextVideoRef);
+            this.#animationService.fromTransformOrigin(this.currentVideoRef);
           });
+        }
+        if (this.loadedVideos() == this.totalVideos - 1) {
+          this.isLoading.set(false);
         }
       });
     }
   }
 
-  
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platform_Id)) {
       this.#viewAnimations = gsap.context(() => {
@@ -75,7 +79,6 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
       this.#animationContext?.kill();
     }
   }
-
 
   handleMiniVdClick() {
     this.hasClicked.set(true);

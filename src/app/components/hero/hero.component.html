@@ -1,4 +1,14 @@
 <div class="relative h-dvh w-screen overflow-x-hidden">
+
+  @if(isLoading()){
+<div class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+  <div class="three-body">
+    <div class="three-body__dot"></div>
+    <div class="three-body__dot"></div>
+    <div class="three-body__dot"></div>
+  </div>
+</div>
+  }
   <div
   #videoFrame
     id="video-frame"
