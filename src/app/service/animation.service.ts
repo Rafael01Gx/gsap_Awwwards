@@ -8,9 +8,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 })
 export class AnimationService {
   constructor() {
-    gsap.registerPlugin(MotionPathPlugin,ScrollTrigger);
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
   }
 
+  //Hero Animations
   toTransformOrigin(elementRef: ElementRef) {
     gsap.to(elementRef.nativeElement, {
       transformOrigin: 'center center',
@@ -35,23 +36,41 @@ export class AnimationService {
       visibility: 'visible',
     });
   }
-  fromClipPath(elementRef:ElementRef){
-         gsap.from(elementRef.nativeElement,{
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          borderRadius: '0 0 0 0',
-          ease: 'power1.inOut',
-          scrollTrigger: {
-            trigger: elementRef.nativeElement,
-            start: 'center center',
-            end: 'bottom center',
-            scrub: true,
-          }
-        })
+  fromClipPath(elementRef: ElementRef) {
+    gsap.from(elementRef.nativeElement, {
+      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+      borderRadius: '0 0 0 0',
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: elementRef.nativeElement,
+        start: 'center center',
+        end: 'bottom center',
+        scrub: true,
+      },
+    });
   }
-  setClipPath(elementRef: ElementRef){
-     gsap.set(elementRef.nativeElement, {
-          clipPath: 'polygon(14% 0%, 72% 0%, 90% 100%, 0% 100%)',
-          borderRadius:'0 0 40% 10%'
-        });
+  setClipPath(elementRef: ElementRef) {
+    gsap.set(elementRef.nativeElement, {
+      clipPath: 'polygon(14% 0%, 72% 0%, 90% 100%, 0% 100%)',
+      borderRadius: '0 0 40% 10%',
+    });
+  }
+
+  //About Animations
+  timelineAnimation(elementRef1: ElementRef,elementRef2: ElementRef) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: elementRef1.nativeElement,
+        start: 'center center',
+        end: '+=800 center',
+        scrub: 0.5,
+        pin: true,
+        pinSpacing: true,
+      },
+    }).to(elementRef1.nativeElement,{
+      width: '100vw',
+      height: '100vh',
+      borderRadius:0
+    });
   }
 }
