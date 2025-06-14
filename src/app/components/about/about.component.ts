@@ -10,12 +10,12 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
+import { AnimatedTitleComponent } from '../animated-title/animated-title.component';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [AnimatedTitleComponent],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css',
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
   @ViewChild('clip', { static: true }) clip!: ElementRef;

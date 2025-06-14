@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { svgIcons } from './../../icons/icons';
+
 
 import { Component, inject, input, Input, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -8,7 +8,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   selector: 'app-button',
   imports: [CommonModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css',
 })
 export class ButtonComponent {
   @Input({ alias: 'title', required: true }) title: string = '';

@@ -16,15 +16,12 @@ import {
 import { ButtonComponent } from '../button/button.component';
 import { svgIcons } from '../../icons/icons';
 import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimationService } from '../../service/animation.service';
 
 @Component({
   selector: 'app-hero',
   imports: [ButtonComponent],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.css',
 })
 export class HeroComponent implements AfterViewInit, OnDestroy {
   @ViewChild('currentVideoRef', { static: true })

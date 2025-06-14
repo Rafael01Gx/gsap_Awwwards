@@ -1,0 +1,13 @@
+<div #containerRef [class]="'animated-title ' + containerClass">
+  <div
+    *ngFor="let line of getLines(title); let i = index"
+    class="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
+  >
+    <span
+      *ngFor="let word of getWords(line); let j = index"
+      class="animated-word"
+      [innerHTML]="word"
+    ></span>
+  </div>
+</div>
+ 
