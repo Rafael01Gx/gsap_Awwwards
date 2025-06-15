@@ -2,11 +2,11 @@
   [id]="id"
   class="group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black {{containerClass}}"
 >
-  <div *ngIf="rightIcon" [innerHTML]="svgSanitize(leftIcon())"></div>
-  <span class="relative incline-flex overflow-hidden font-general text-xs uppercase">
-    <div>
-      {{title}}
-    </div>
-    <div *ngIf="rightIcon" [innerHTML]="svgSanitize(rightIcon())"></div>
+<div *ngIf="rightIcon()" [innerHTML]="svgSanitize(rightIcon())"></div>
+<span class="relative inline-flex overflow-hidden font-general text-xs uppercase">
+  <div>
+    {{title}}
+  </div>
+  <div *ngIf="leftIcon()" [innerHTML]="svgSanitize(leftIcon())"></div>
   </span>
 </div>

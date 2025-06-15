@@ -6,7 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @Component({
   selector: 'app-root',
   imports: [HeroComponent, AboutComponent, NavbarComponent],
-  template: ` <main class="relative min-h-screen w-screen overflow-x-hidden bg-zinc-600">
+  template: ` <main class="relative min-h-screen w-screen overflow-x-hidden">
     <app-navbar />
     <app-hero />
     <app-about />

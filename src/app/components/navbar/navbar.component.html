@@ -1,0 +1,42 @@
+<div
+  #navContainer
+  class="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
+>
+  <header class="absolute top-1/2 w-full -translate-y-1/2">
+    <nav class="flex size-full items-center justify-between p-4">
+      <div class="flex items-center gap-7">
+        <img src="img/logo.png" alt="logo" class="w-10" />
+        <app-button
+          title="Products"
+          id="product-button"
+          containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1 "
+          [rightIcon]="icon.arrowLocation"
+        />
+      </div>
+      <div class="flex h-full items-center">
+        <div class="hidden md:block">
+          @for(item of navItems; track item){
+          <a class="nav-hover-btn" [href]="'#' + item.toLocaleLowerCase()">{{
+            item
+          }}</a>
+          }
+        </div>
+
+        <button
+          (click)="toogleAudioIndicator()"
+          class="ml-10 flex items-center space-x-0.5"
+        >
+          <audio #audioElementRef class="hidden" src="audio/loop.mp3" loop> </audio>
+            <div
+              *ngFor="let item of [1, 2, 3, 4]; let i = index"
+              [class]="
+                'indicator-line ' + (isIndicatorActive() ? 'active' : '')
+              "
+              [style]="'animationDelay: '+( i * 0.1)+'s'"
+            ></div>
+         
+        </button>    
+      </div>
+    </nav>
+  </header>
+</div>

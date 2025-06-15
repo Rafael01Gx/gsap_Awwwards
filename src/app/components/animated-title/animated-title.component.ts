@@ -6,6 +6,7 @@ import {
   Inject,
   inject,
   Input,
+  OnDestroy,
   OnInit,
   PLATFORM_ID,
   ViewChild,
@@ -19,7 +20,7 @@ import { AnimationService } from '../../service/animation.service';
   imports: [CommonModule],
   templateUrl: './animated-title.component.html',
 })
-export class AnimatedTitleComponent implements OnInit {
+export class AnimatedTitleComponent implements OnDestroy {
   @Input({ alias: 'title', required: true }) title!: string;
   @Input({ alias: 'containerClass', required: true }) containerClass!: string;
 
@@ -44,8 +45,9 @@ export class AnimatedTitleComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.#titleAnimatedCtx?.kill();
+  }
 
   getLines(text: string): string[] {
     return text.split('<br/>');

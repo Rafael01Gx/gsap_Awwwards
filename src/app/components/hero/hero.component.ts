@@ -32,7 +32,7 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
   #animationService = inject(AnimationService);
 
-  icon = signal(svgIcons);
+  icon = svgIcons;
   currentIndex = signal(1);
   hasClicked = signal(false);
   isLoading = signal(true);

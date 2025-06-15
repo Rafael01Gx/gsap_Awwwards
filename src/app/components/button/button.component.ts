@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 
-
-import { Component, inject, input, Input, signal } from '@angular/core';
+import { Component, inject, input, Input} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -12,16 +11,18 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ButtonComponent {
   @Input({ alias: 'title', required: true }) title: string = '';
   @Input({ alias: 'id', required: true }) id: string = '';
-  @Input({ alias: 'rightIcon', required: false }) rightIcon = signal<string|null>('')
-  @Input({ alias: 'containerClass', required: true }) containerClass: string = '';
+  //@Input({ alias: 'rightIcon', required: false }) rightIcon! : string;
+  // @Input({ alias: 'leftIcon', required: false }) leftIcon! : string;
+  @Input({ alias: 'containerClass', required: true }) containerClass: string =
+    '';
   sanitizer = inject(DomSanitizer);
-  leftIcon = input<string>('')
-  
+
+  rightIcon = input<string | null>(null, { alias: 'rightIcon' });
+  leftIcon = input<string | null>(null, { alias: 'leftIcon' });
 
 
-
-  svgSanitize(icon: string|null) {
-   if(icon) return this.sanitizer.bypassSecurityTrustHtml(icon);
-   return ""
+  svgSanitize(icon: string | null) {
+    if (icon) return this.sanitizer.bypassSecurityTrustHtml(icon);
+    return '';
   }
 }

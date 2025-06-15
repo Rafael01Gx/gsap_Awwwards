@@ -76,7 +76,7 @@ export class AnimationService {
       });
   }
 
-  //TitleAnimation
+  //Title Animations
   titleAnimation(elementRef1: ElementRef, elementRef2: string) {
     gsap
       .timeline({
@@ -98,6 +98,15 @@ export class AnimationService {
         },
         0
       );
+  }
+
+  //Navbar Animations
+  navbarAnimation(elementRef1: ElementRef,isVisible:boolean){
+     gsap.to(elementRef1, {
+      y: isVisible ? 0 : -100,
+      opacity: isVisible ? 1 : 0,
+      duration: 0.2,
+    });
   }
 
 
