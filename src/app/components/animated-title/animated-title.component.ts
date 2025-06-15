@@ -36,7 +36,7 @@ export class AnimatedTitleComponent implements OnDestroy {
       if (isPlatformBrowser(this.platform_Id)) {
         this.#titleAnimatedCtx?.revert();
         this.#titleAnimatedCtx = gsap.context(() => {
-          console.log('executando animaçao');
+
           this.#animationService.titleAnimation(
             this.containerRef,
             '.animated-word'

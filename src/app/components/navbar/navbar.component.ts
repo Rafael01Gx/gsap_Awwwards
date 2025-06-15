@@ -13,6 +13,7 @@ import { ButtonComponent } from '../button/button.component';
 import { svgIcons } from '../../icons/icons';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { fromEvent, Subscription, throttleTime } from 'rxjs';
+import { AnimationService } from '../../service/animation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -35,11 +36,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   #scrollSubscription: Subscription | undefined;
 
-  private platformId = inject(PLATFORM_ID);
+  #platformId = inject(PLATFORM_ID);
+  #animationService = inject(AnimationService);
 
   constructor() {
     effect(() => {
-      if (isPlatformBrowser(this.platformId)) {
+      if (isPlatformBrowser(this.#platformId)) {
         const audio = this.audioElementRef();
         if (audio) {
           if (this.isAudioPlaying()) {
@@ -52,34 +54,42 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
 
     effect(() => {
-      const current = this.currentScrollY();
-      const last = this.lastScrollY();
+      if (isPlatformBrowser(this.#platformId)) {
+        const current = this.currentScrollY();
+        const last = this.lastScrollY();
 
-      if (current === 0) {
-        // Topmost position: show navbar without floating-nav
-        this.isNavVisible.set(true);
-        this.navContainer()!.nativeElement.classList.remove('floating-nav');
-      } else if (current > last) {
-        // Scrolling down: hide navbar and apply floating-nav
-        this.isNavVisible.set(false);
-        this.navContainer()!.nativeElement.classList.add('floating-nav');
-      } else if (current < last) {
-        // Scrolling up: show navbar with floating-nav
-        this.isNavVisible.set(true);
-        this.navContainer()!.nativeElement.classList.add('floating-nav');
+        if (current === 0) {
+          this.isNavVisible.set(true);
+
+          this.navContainer()!.nativeElement.classList.remove('floating-nav');
+        } else if (current > last) {
+          this.isNavVisible.set(false);
+          this.navContainer()!.nativeElement.classList.add('floating-nav');
+        } else if (current < last) {
+          this.isNavVisible.set(true);
+          this.navContainer()!.nativeElement.classList.add('floating-nav');
+        }
+      }
+    });
+    effect(() => {
+      if (isPlatformBrowser(this.#platformId)) {
+        if (this.isNavVisible() || !this.isNavVisible()) {
+          this.#animationService.navbarAnimation(
+            this.navContainer()!,
+            this.isNavVisible()
+          );
+        }
       }
     });
   }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.#scrollSubscription = fromEvent(window, 'scroll')
-        .pipe(throttleTime(50))
-        .subscribe(() => {
-          const newScrollY = window.scrollY;
-          this.lastScrollY.set(this.currentScrollY());
-          this.currentScrollY.set(newScrollY);
-        });
+    if (isPlatformBrowser(this.#platformId)) {
+      this.#scrollSubscription = fromEvent(window, 'scroll').subscribe(() => {
+        const newScrollY = window.scrollY;
+        this.lastScrollY.set(this.currentScrollY());
+        this.currentScrollY.set(newScrollY);
+      });
     }
   }
 

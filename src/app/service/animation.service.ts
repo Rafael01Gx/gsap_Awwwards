@@ -2,13 +2,14 @@ import { ElementRef, Injectable } from '@angular/core';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnimationService {
   constructor() {
-    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger,CSSPlugin);
   }
 
   //Hero Animations
@@ -102,11 +103,12 @@ export class AnimationService {
 
   //Navbar Animations
   navbarAnimation(elementRef1: ElementRef,isVisible:boolean){
-     gsap.to(elementRef1, {
+     gsap.to(elementRef1.nativeElement, {
       y: isVisible ? 0 : -100,
       opacity: isVisible ? 1 : 0,
       duration: 0.2,
     });
+    
   }
 
 
