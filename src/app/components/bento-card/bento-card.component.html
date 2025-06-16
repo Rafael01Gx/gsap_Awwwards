@@ -1,0 +1,12 @@
+<div class='relative size-full '>
+  <video [src]="src()!" loop muted autoplay class='absolute left-0 top-0 size-full object-cover object-center'></video>
+  <div class='relative z-10 flex size-full flex-col  justify-between p-5 text-blue-50'>
+  <div>
+  <h1 class='bento-title special-font'><div [innerHTML]="title()!"></div></h1>
+  @if(description()!){
+  <p class='mt-3 max-w-64 text-xm md:text-base'>{{description()!}}</p>
+  }
+   </div>
+  </div>
+  
+  </div>
