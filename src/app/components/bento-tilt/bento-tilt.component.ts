@@ -1,10 +1,17 @@
-import { Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, HostBinding, Input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-bento-tilt',
-  imports: [],
-  templateUrl: './bento-tilt.component.html',
+  imports: [CommonModule],
+  template: `
+    <ng-content></ng-content>
+  `,
 })
 export class BentoTiltComponent {
-cssClass = input.required<string>()
+  @HostBinding('class') @Input('hostClass') hostClass!: string;
+
+
+
+  #transformStyle = signal('');
 }

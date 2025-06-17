@@ -11,6 +11,7 @@
       </p>
     </div>
 
+
     <div
       class="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]"
     >
@@ -20,40 +21,55 @@
         src="videos/feature-1.mp4"
         title="radia<b>n</b>t"
       ></app-bento-card>
-    </div>
+  </div>
 
     <div class="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
-      
-      <div class="bento-tilt-1 row-span-1 md:col-span-1 md:row-span-2">
+
+      <app-bento-tilt [hostClass]="'bento-tilt-1 row-span-1 md:col-span-1 md:row-span-2'">
         <app-bento-card
           src="videos/feature-2.mp4"
           title="zig<b>m</b>a"
           description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
         ></app-bento-card>
-      </div>
-      <div class="bento-tilt-1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+      </app-bento-tilt>
+
+      <app-bento-tilt [hostClass]="'bento-tilt-1 row-span-1 ms-32 md:col-span-1 md:ms-0'">
         <app-bento-card
           src="videos/feature-3.mp4"
           title="n<b>e</b>xus"
           description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
         ></app-bento-card>
-      </div>
-      <div class="bento-tilt-1 me-14 md:col-span-1 md:me-0">
+      </app-bento-tilt>
+
+      <app-bento-tilt [hostClass]="'bento-tilt-1 me-14 md:col-span-1 md:me-0'">
         <app-bento-card
           src="videos/feature-4.mp4"
           title="az<b>u</b>l"
           description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
         ></app-bento-card>
-      </div>
-      <div class="bento-tilt-2">
+      </app-bento-tilt>
+
+      <app-bento-tilt [hostClass]="'bento-tilt-2'">
         <div class="flex size-full flex-col justify-between bg-violet-300 p-5">
-          <h1 class="bento-title special-font max-w-64 text-black">M<b>o</b>re Co<b>m</b>ing s<b>o</b>on!</h1>
-          <div class="m-5 scale-[3] self-end" [innerHTML]="safeHtmlIcon(icon.arrowLocation)"></div>
+          <h1 class="bento-title special-font max-w-64 text-black">
+            M<b>o</b>re Co<b>m</b>ing s<b>o</b>on!
+          </h1>
+          <div
+            class="m-5 scale-[5] self-end"
+            [innerHTML]="safeHtmlIcon(icon.arrowLocation)"
+          ></div>
         </div>
-      </div>
-      <div class="bento-tilt-2">
-        <video src="videos/feature-5.mp4" loop muted autoplay class="size-full object-cover object-center"></video>
-      </div>
+      </app-bento-tilt>
+
+      <app-bento-tilt [hostClass]="'bento-tilt-2'">
+        <video
+          src="videos/feature-5.mp4"
+          loop
+          muted
+          autoplay
+          class="size-full object-cover object-center"
+        ></video>
+      </app-bento-tilt>
     </div>
   </div>
 </section>
