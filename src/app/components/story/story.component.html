@@ -1,15 +1,48 @@
 <section #story class="min-h-dvh w-screen bg-black text-blue-50">
   <div class="flex size-full flex-col items-center py-10 pb-24">
-<p class=" font-general text-sm uppercase md:text-[10px]">the multiversal ip world</p>
-<div class="relative size-full">
-  <app-animated-title title="The st<b>o</b>ry of a <br/> hidden real<b>m</b>" txColor="white" containerClass="mt-5 pointer-events-none mix-blend-differnce relative z-10"  />
-    <div class="story-img-container">
-      <div class="story-img-mask">
-        <div class="story-img-content">
-          <img (mouseleave)="handleMouseLeave($event)" (mouseup)="handleMouseLeave($event)" (mouseenter)="handleMouseLeave($event)" (mousemove)="handleMouseMove($event)" #frame src="img/entrance.webp" alt="entrance" class="object-contain">
+    <p class="font-general text-sm uppercase md:text-[10px]">
+      the multiversal ip world
+    </p>
+    <div class="relative size-full">
+      <app-animated-title
+        title="The st<b>o</b>ry of a <br/> hidden real<b>m</b>"
+        txColor="white"
+        containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
+      />
+      <div class="story-img-container">
+        <div class="story-img-mask">
+          <div class="story-img-content">
+            <img
+              (mouseleave)="handleMouseLeave($event)"
+              (mouseup)="handleMouseLeave($event)"
+              (mouseenter)="handleMouseLeave($event)"
+              (mousemove)="handleMouseMove($event)"
+              #frame
+              src="img/entrance.webp"
+              alt="entrance"
+              class="object-contain"
+            />
+          </div>
         </div>
+        <app-rounded-corners />
       </div>
     </div>
-</div>
+    <div
+      class="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end"
+    >
+      <div class="flex h-full w-fit flex-col items-center md:items-start">
+        <p
+          class="mt-3 max-w-sm text-center font-circular-web text-violet-50 md:text-start"
+        >
+          Where realms converge, lies Zentry and the boundless pillar. Discover
+          its secrets and shape your fate amidst infinite opportunities.
+        </p>
+        <app-button
+          id="realm-btn"
+          title="discover prologue"
+          containerClass="mt-5"
+        />
+      </div>
+    </div>
   </div>
 </section>

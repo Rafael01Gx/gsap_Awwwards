@@ -1,16 +1,18 @@
 import {
   Component,
   ElementRef,
-  HostListener,
   inject,
   ViewChild,
 } from '@angular/core';
 import { AnimatedTitleComponent } from '../animated-title/animated-title.component';
 import { AnimationService } from '../../service/animation.service';
+import { RoundedCornersComponent } from "../rounded-corners/rounded-corners.component";
+import { ButtonComponent } from "../button/button.component";
+
 
 @Component({
   selector: 'app-story',
-  imports: [AnimatedTitleComponent],
+  imports: [AnimatedTitleComponent, RoundedCornersComponent, ButtonComponent],
   templateUrl: './story.component.html',
 })
 export class StoryComponent {

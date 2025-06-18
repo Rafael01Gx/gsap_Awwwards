@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ButtonComponent {
   @Input({ alias: 'title', required: true }) title: string = '';
-  @Input({ alias: 'id', required: true }) id: string = '';
+  @Input('id') id: string = '';
   //@Input({ alias: 'rightIcon', required: false }) rightIcon! : string;
   // @Input({ alias: 'leftIcon', required: false }) leftIcon! : string;
   @Input({ alias: 'containerClass', required: true }) containerClass: string =
