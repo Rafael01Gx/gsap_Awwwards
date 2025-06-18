@@ -9,7 +9,7 @@ import { CSSPlugin } from 'gsap/CSSPlugin';
 })
 export class AnimationService {
   constructor() {
-    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger,CSSPlugin);
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, CSSPlugin);
   }
 
   //Hero Animations
@@ -78,7 +78,11 @@ export class AnimationService {
   }
 
   //Title Animations
-  titleAnimation(elementRef1: ElementRef, elementRef2: string) {
+  titleAnimation(
+    elementRef1: ElementRef,
+    elementRef2: string,
+    txColor: string = ''
+  ) {
     gsap
       .timeline({
         scrollTrigger: {
@@ -92,8 +96,8 @@ export class AnimationService {
         elementRef2,
         {
           opacity: 1,
+          color: txColor ? txColor : 'black',
           transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
-          color: 'black',
           ease: 'power2.inOut',
           stagger: 0.02,
         },
@@ -102,14 +106,30 @@ export class AnimationService {
   }
 
   //Navbar Animations
-  navbarAnimation(elementRef1: ElementRef,isVisible:boolean){
-     gsap.to(elementRef1.nativeElement, {
+  navbarAnimation(elementRef1: ElementRef, isVisible: boolean) {
+    gsap.to(elementRef1.nativeElement, {
       y: isVisible ? 0 : -100,
       opacity: isVisible ? 1 : 0,
       duration: 0.2,
     });
-    
   }
 
-
+  //Story Animations
+  frameRotate(element: ElementRef, rotateX: number, rotateY: number) {
+    gsap.to(element.nativeElement, {
+      duration: 0.3,
+      rotateX,
+      rotateY,
+      transformPerspective: 500,
+      ease: 'power1.inOut',
+    });
+  }
+  frameRotateRm(element: ElementRef) {
+    gsap.to(element.nativeElement, {
+      duration: 0.3,
+      rotateX:0,
+      rotateY:0,
+      ease: 'power1.inOut',
+    });
+  }
 }

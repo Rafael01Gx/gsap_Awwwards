@@ -5,6 +5,7 @@ import {
   ElementRef,
   Inject,
   inject,
+  input,
   Input,
   OnDestroy,
   OnInit,
@@ -23,6 +24,7 @@ import { AnimationService } from '../../service/animation.service';
 export class AnimatedTitleComponent implements OnDestroy {
   @Input({ alias: 'title', required: true }) title!: string;
   @Input({ alias: 'containerClass', required: true }) containerClass!: string;
+ txColor= input<string>('')
 
   @ViewChild('containerRef', { static: true }) containerRef!: ElementRef;
 
@@ -39,7 +41,7 @@ export class AnimatedTitleComponent implements OnDestroy {
 
           this.#animationService.titleAnimation(
             this.containerRef,
-            '.animated-word'
+            '.animated-word',this.txColor()
           );
         }, this.containerRef.nativeElement);
       }
