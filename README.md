@@ -77,5 +77,5 @@ Ideal para desenvolvedores que desejam aprender a construir interfaces elegantes
 ### 🔧 Clonando o repositório
 
 ```bash
-git clone [https://github.com/seu-usuario/nome-do-projeto.git](https://github.com/Rafael01Gx/gsap_Awwwards)
+git clone https://github.com/Rafael01Gx/gsap_Awwwards
 cd nome-do-projeto
