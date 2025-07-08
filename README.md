@@ -1,59 +1,81 @@
-# GsapAula
+<div align="center">
+  <br /> 
+    <img src="https://github.com/user-attachments/assets/ab600f24-f4d9-4cef-8f1e-3fd9194afb30" alt="Project Banner">
+  <br />
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+  <div>
+    <img src="https://img.shields.io/badge/-Angular_20-black?style=for-the-badge&logo=angular&color=dd0031" alt="angular" />
+    <img src="https://img.shields.io/badge/-GSAP-black?style=for-the-badge&logo=greensock&color=88CE02" alt="greensock" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="tailwindcss" />
+  </div>
 
-## Development server
+  <h3 align="center">Award-Inspired Angular Website</h3>
 
-To start a local development server, run:
+  <div align="center">
+    Desenvolvido com Angular 20 + TailwindCSS 4.1 + GSAP.
+  </div>
+</div>
+
+---
+
+## 📌 Índice
+
+1. [🧠 Introdução](#introducao)
+2. [⚙️ Tecnologias](#tecnologias)
+3. [✨ Funcionalidades](#funcionalidades)
+4. [🚀 Início Rápido](#inicio-rapido)
+
+---
+
+## ⚠️ Aviso Legal
+
+Este projeto é uma **recriação** inspirada no design de **[Zentry](https://zentry.com/)**. Todos os direitos dos assets e fontes pertencem aos seus respectivos proprietários. Não é destinado para uso comercial ou publicação pública.
+
+---
+
+## 🧠 <a name="introducao">Introdução</a>
+
+Esse projeto é uma recriação interativa de um site no estilo **Awwwards**, com foco em:
+
+- Experiência visual de alto impacto
+- Animações com GSAP ativadas por rolagem
+- Transições geométricas usando `clip-path`
+- Efeitos interativos modernos
+
+Ideal para desenvolvedores que desejam aprender a construir interfaces elegantes, animações complexas e TailwindCSS de forma modular e responsiva.
+
+---
+
+## ⚙️ <a name="tecnologias">Tecnologias Utilizadas</a>
+
+- **Angular 20**
+- **TailwindCSS 4.1**
+- **GSAP (GreenSock Animation Platform)**
+
+---
+
+## ✨ <a name="funcionalidades">Funcionalidades</a>
+
+✅ **Animações baseadas em rolagem**  
+✅ **Transições com Clip-Path**  
+✅ **Efeitos 3D interativos**  
+✅ **Integração com vídeos para transições**  
+✅ **UI moderna e fluida**  
+✅ **Responsividade total para todos os dispositivos**  
+✅ **Arquitetura escalável e reutilizável**
+
+---
+
+## 🤸 <a name="inicio-rapido">Início Rápido</a>
+
+### 📋 Pré-requisitos
+
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
+- [Git](https://git-scm.com/)
+
+### 🔧 Clonando o repositório
 
 ```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone [https://github.com/seu-usuario/nome-do-projeto.git](https://github.com/Rafael01Gx/gsap_Awwwards)
+cd nome-do-projeto
